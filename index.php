@@ -49,15 +49,13 @@
 
   $line = $stripedLine = $square = $parallelogram = $triangle = $rtriangle = '';
 
-  if (isset($_GET['number'])) {
-      $number = intval($_GET['number']);
-      $line = DrawLine($number);
-      $stripedLine = DrawStripedLine($number);
-      $square = DrawSquare($number);
-      $parallelogram = DrawParallelogram($number);
-      $triangle = DrawTriangle($number);
-      $rtriangle = DrawRTriangle($number);
-  }
+  $number = isset($_GET["number"]) ? intval($_GET['number']) : 5;
+  $line = DrawLine($number);
+  $stripedLine = DrawStripedLine($number);
+  $square = DrawSquare($number);
+  $parallelogram = DrawParallelogram($number);
+  $triangle = DrawTriangle($number);
+  $rtriangle = DrawRTriangle($number);
 ?>
 
 <!DOCTYPE html>
@@ -82,12 +80,12 @@
   </div>
 
   <!-- Error checking -->
-  <?php if($_GET['number'] % 2 == 0): ?>
+  <?php if($number % 2 == 0): ?>
     <p>Error: Number has to be odd!</p>
   <?php endif; ?>
 
   <!-- Display numbers -->
-  <?php if(isset($_GET['number']) && $_GET['number'] % 2 != 0): ?>
+  <?php if(isset($number) && $number % 2 != 0): ?>
     <div>
       <div>
           <p>Line:</p>
