@@ -1,0 +1,4 @@
+name: zy_shapes
+recipe: lamp
+config:
+  webroot: .
