@@ -1,109 +1,109 @@
 <?php
-$user_input = isset($_GET["user_input"]) ? $_GET["user_input"] : 7;
-$user_input_correct = false;
-$type_correct = false;
+  $user_input = isset($_GET["user_input"]) ? $_GET["user_input"] : 11;
+  $user_input_correct = false;
+  $type_correct = false;
 
-if ($user_input >= 3 && $user_input % 2 != 0) {
-  $user_input_correct = true;
-}
-
-if (is_numeric($user_input) == true) {
-  $type_correct = true;
-}
-
-function DrawLine(int $number)
-{
-  $pattern = "";
-
-  for ($i = 0; $i < $number; $i++) {
-    $pattern .= "*";
+  if ($user_input >= 3 && $user_input % 2 != 0) {
+    $user_input_correct = true;
   }
 
-  return $pattern;
-}
-
-function DrawStripedLine(int $number)
-{
-  $pattern = "";
-
-  for ($i = 0; $i < $number; $i++) {
-    if ($i % 2 == 0) {
-      $pattern .= "*";
-    } else {
-      $pattern .= "_";
-    }
+  if (is_numeric($user_input) == true) {
+    $type_correct = true;
   }
 
-  return $pattern;
-}
+  function DrawLine(int $number)
+  {
+    $pattern = "";
 
-function DrawSquare(int $number)
-{
-  $pattern = "";
-
-  for ($i = 0; $i < $number; $i++) {
-    for ($j = 0; $j < $number; $j++) {
+    for ($i = 0; $i < $number; $i++) {
       $pattern .= "*";
     }
-    $pattern .= "<br>";
+
+    return $pattern;
   }
 
-  return $pattern;
-}
+  function DrawStripedLine(int $number)
+  {
+    $pattern = "";
 
-function DrawParallelogram(int $number)
-{
-  $pattern = "";
+    for ($i = 0; $i < $number; $i++) {
+      if ($i % 2 == 0) {
+        $pattern .= "*";
+      } else {
+        $pattern .= "_";
+      }
+    }
 
-  for ($i = 0; $i < $number; $i++) {
-    for ($j = $number; $j > $i + 1; $j--) {
-      $pattern .= "_";
-    }
-    for ($j = $number; $j > 0; $j--) {
-      $pattern .= "*";
-    }
-    for ($j = 0; $j <= $i - 1; $j++) {
-      $pattern .= "_";
-    }
-    $pattern .= "<br>";
+    return $pattern;
   }
 
-  return $pattern;
-}
+  function DrawSquare(int $number)
+  {
+    $pattern = "";
 
-function DrawTriangle(int $number)
-{
-  $pattern = "";
+    for ($i = 0; $i < $number; $i++) {
+      for ($j = 0; $j < $number; $j++) {
+        $pattern .= "*";
+      }
+      $pattern .= "<br>";
+    }
 
-  for ($i = 0; $i < $number; $i++) {
-    for ($j = $number; $j > $i; $j--) {
-      $pattern .= "*";
-    }
-    for ($j = 0; $j <= $i - 1; $j++) {
-      $pattern .= "_";
-    }
-    $pattern .= "<br>";
+    return $pattern;
   }
 
-  return $pattern;
-}
+  function DrawParallelogram(int $number)
+  {
+    $pattern = "";
 
-function DrawReverseTriangle(int $number)
-{
-  $pattern = "";
+    for ($i = 0; $i < $number; $i++) {
+      for ($j = $number; $j > $i + 1; $j--) {
+        $pattern .= "_";
+      }
+      for ($j = $number; $j > 0; $j--) {
+        $pattern .= "*";
+      }
+      for ($j = 0; $j <= $i - 1; $j++) {
+        $pattern .= "_";
+      }
+      $pattern .= "<br>";
+    }
 
-  for ($i = 0; $i < $number; $i++) {
-    for ($j = 0; $j <= $i; $j++) {
-      $pattern .= "*";
-    }
-    for ($j = $number; $j > $i; $j--) {
-      $pattern .= "_";
-    }
-    $pattern .= "<br>";
+    return $pattern;
   }
 
-  return $pattern;
-}
+  function DrawTriangle(int $number)
+  {
+    $pattern = "";
+
+    for ($i = 0; $i < $number; $i++) {
+      for ($j = $number; $j > $i; $j--) {
+        $pattern .= "*";
+      }
+      for ($j = 0; $j <= $i - 1; $j++) {
+        $pattern .= "_";
+      }
+      $pattern .= "<br>";
+    }
+
+    return $pattern;
+  }
+
+  function DrawReverseTriangle(int $number)
+  {
+    $pattern = "";
+
+    for ($i = 0; $i < $number; $i++) {
+      for ($j = 0; $j <= $i; $j++) {
+        $pattern .= "*";
+      }
+      for ($j = $number; $j > $i; $j--) {
+        $pattern .= "_";
+      }
+      $pattern .= "<br>";
+    }
+
+    return $pattern;
+  }
 ?>
 
 <!DOCTYPE html>
@@ -111,22 +111,7 @@ function DrawReverseTriangle(int $number)
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zy Shapes</title>
-  <link 
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
-    rel="stylesheet" 
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" 
-    crossorigin="anonymous"
-  >
-  <style>
-    .box {
-      border: 1px solid rgba(112.520718,44.062154,249.437846, 0.3);
-    }
-    
-    form .box {
-      margin: 5px 0;
-    }
-  </style>
+  <title>Theolo Shapes - Advanced Web Dev</title>
 </head>
 <body>
   <form class="container box my-sm-5 p-2">
@@ -186,14 +171,14 @@ function DrawReverseTriangle(int $number)
     <?php endif; ?>
 
     <!-- Input -->
-    <div class="row d-flex justify-content-center my-2">
+    <div styles="display: flex; justify-content: center; margin-top: 2; margin-y: 2">
       <div class="input-group">
         <span class="input-group-text">Num Input:</span>
         <input type="number" class="form-control" name="user_input" value='<?php echo $user_input?>' min="3" />
         <button class="btn btn-outline-secondary" type="submit">Draw Shapes</button>
       </div>
     </div>
-    
+
   </form>
 </body>
 </html>
