@@ -62,56 +62,58 @@
 
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Theolo Cinco</title>
-</head>
+  <head>
+      <title>Theolo Cinco</title>
+  </head>
 <body>
+  <div>
+    <h1>PHP: Web Development Lab</h1>
+    
+    <form method="get">
+        <input 
+          type="number" 
+          name="number" 
+          placeholder="Enter a number" 
+          required
+          min="3"
+          value="<?php echo $number ?>">
+        <input type="submit" value="Submit">
+    </form>
+  </div>
+
+  <!-- Error checking -->
+  <?php if($_GET['number'] % 2 == 0): ?>
+    <p>Error: Number has to be odd!</p>
+  <?php endif; ?>
+
+  <!-- Display numbers -->
+  <?php if(isset($_GET['number']) && $_GET['number'] % 2 != 0): ?>
     <div>
-        <h1>PHP: Web Development Lab</h1>
-        
-        <form method="get">
-            <input 
-              type="number" 
-              name="number" 
-              placeholder="Enter a number" 
-              required
-              min="3"
-              value="<?php echo $number ?>">
-            <input type="submit" value="Submit">
-        </form>
-    </div>
-
-    <?php if($_GET['number'] % 2 == 0): ?>
-      <p>Error: Number has to be odd!</p>
-    <?php endif; ?>
-
-    <?php if(isset($_GET['number']) && $_GET['number'] % 2 != 0): ?>
       <div>
-        <div>
-            <p>Line:</p>
-            <?php echo nl2br($line); ?>
-        </div>
-        <div>
-            <p>Striped Line:</p>
-            <?php echo nl2br($stripedLine); ?>
-        </div>
-        <div>
-            <p>Square:</p>
-            <?php echo nl2br($square); ?>
-        </div>
-        <div>
-            <p>Parallelogram:</p>
-            <?php echo nl2br($parallelogram); ?>
-        </div>
-        <div>
-            <p>Triangle:</p>
-            <?php echo nl2br($triangle); ?>
-        </div>
-        <div>
-            <p>Reverse Triangle:</p>
-            <?php echo nl2br($rtriangle); ?>
-        </div>
+          <p>Line:</p>
+          <?php echo nl2br($line); ?>
       </div>
-    <?php endif; ?>
+      <div>
+          <p>Striped Line:</p>
+          <?php echo nl2br($stripedLine); ?>
+      </div>
+      <div>
+          <p>Square:</p>
+          <?php echo nl2br($square); ?>
+      </div>
+      <div>
+          <p>Parallelogram:</p>
+          <?php echo nl2br($parallelogram); ?>
+      </div>
+      <div>
+          <p>Triangle:</p>
+          <?php echo nl2br($triangle); ?>
+      </div>
+      <div>
+          <p>Reverse Triangle:</p>
+          <?php echo nl2br($rtriangle); ?>
+      </div>
+    </div>
+  <?php endif; ?>
 </body>
 </html>
